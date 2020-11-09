@@ -1,6 +1,8 @@
 using System;
-using System.Web.DynamicData;
+using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 
 namespace ProyectoIot.Models

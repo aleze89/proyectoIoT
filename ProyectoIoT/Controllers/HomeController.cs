@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ProyectoIoT.Models;
+using System.Text;
+using ProyectoIot.Models;
 
 namespace ProyectoIoT.Controllers
 {
