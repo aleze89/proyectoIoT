@@ -28,10 +28,26 @@ namespace ProyectoIoT.Controllers
             return View();
         }
 
+        public IActionResult Crear()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Crear(Usuario user)
+        {
+            if (ModelState.IsValid)
+            {
+                bool correcta = "Clave".Any(char.IsDigit) && "Clave".Any(char.IsLower) && "Clave".Any(char.IsUpper);
+            }
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
+
 }

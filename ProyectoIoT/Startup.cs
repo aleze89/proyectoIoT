@@ -24,6 +24,9 @@ namespace ProyectoIoT
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<UsuariosContext>(options =>
+            options.UseSqlite(Configuration.GetConnectionString("UsuariosContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +53,7 @@ namespace ProyectoIoT
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}"); //Formato de enrutamiento
             });
         }
     }
