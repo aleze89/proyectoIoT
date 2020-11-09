@@ -13,6 +13,8 @@ namespace ProyectoIoT.Models
 : base(options)
         { }
 
+        public object Usuarios { get; internal set; }
+
         public DbSet<Usuario> GetUsuarios()
         {
             return usuarios;
