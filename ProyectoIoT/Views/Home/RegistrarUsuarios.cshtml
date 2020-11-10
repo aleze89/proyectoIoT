@@ -1,1 +1,17 @@
-<p>@ViewBag.registroCompleto</p>
+<h2>Ingrese sus Datos</h2>
+    <form method="POST" action="AgregarUsuario">
+        <div class="form-group">
+            <label for="nombreUsuario" >Nombre de Usuario</label>
+            <input class="form-control" name="nombreUsuario" placeholder="Ingrese su nombre de usuario" required/>
+        </div>
+        <div class="form-group">
+            <label for="email" >Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Ingrese su email" required/>
+        </div>
+        <div class="form-group">
+            <label for="clave">Texto</label>
+            <input type="password" class="form-control" name="clave" placeholder="Ingrese su clave" required></input>
+        </div>
+       
+        <input type="submit" class="btn btn-primary" value="Enviar"/>
+    </form>

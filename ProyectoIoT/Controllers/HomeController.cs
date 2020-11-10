@@ -15,17 +15,15 @@ namespace ProyectoIoT.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        
+        private readonly ILogger<HomeController> logger;
         private readonly UsuariosContext db;
 
-        public HomeController(UsuariosContext context)
+        public HomeController(ILogger<HomeController> logger,
+        UsuariosContext contexto)
         {
-            this.db = context;
-        }
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+            this.logger = logger;
+            this.db = contexto;
         }
 
         public IActionResult Index()
@@ -38,31 +36,15 @@ namespace ProyectoIoT.Controllers
             return View();
         }
 
-        public IActionResult CrearUsuario()
+            public string AgregarUsuario(string nombreUsuario,string email,string clave)
         {
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public IActionResult CrearUsuario(Usuario user)
-        {
-            if (ModelState.IsValid)
-            {
-                bool correcta = "Clave".Any(char.IsDigit) && "Clave".Any(char.IsLower) && "Clave".Any(char.IsUpper);
-            }
-            ViewBag.registroCompleto= "Su registro a sido exitos";
-            return View();
-        }
-
-        public string AgregarUsuario(string nombreUsuario,string email,string clave)
-        {
-            Usuario nuevoUsuario = new Usuario(){
+            Usuario nuevoUsuario = new Usuario{
                 NombreUsuario = nombreUsuario,
-                EmailAddress = email,
+                Email = email,
                 Clave = clave
             };
 
-            object p = db.Usuarios.Add(nuevoUsuario);
+            db.Usuarios.Add(nuevoUsuario);
             db.SaveChanges();
 
             return "Ok!!!";

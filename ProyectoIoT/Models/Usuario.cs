@@ -17,8 +17,8 @@ namespace ProyectoIot.Models
         public string NombreUsuario {get; set; }
 
         [Required(ErrorMessage = "Debe ingresar un email")]
-        [DataType(DataType.EmailAddress)]
-        public object EmailAddress{get; set; }
+        
+        public string Email {get; set; }
 
         [Required(ErrorMessage = "Debe ingresar clave")]
         [StringLength(6, ErrorMessage = "La clave debe contener entre 1 y 6 cararteres", MinimumLength = 1)]
