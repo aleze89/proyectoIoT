@@ -30,13 +30,17 @@ namespace ProyectoIoT.Controllers
         {
             return View();
         }
+        public IActionResult RegistrarUsuarios()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
             return View();
         }
-
-            public string AgregarUsuario(string nombreUsuario,string email,string clave)
+        [HttpPost]
+            public JsonResult AgregarUsuario(string nombreUsuario,string email,string clave)
         {
             Usuario nuevoUsuario = new Usuario{
                 NombreUsuario = nombreUsuario,
@@ -47,7 +51,7 @@ namespace ProyectoIoT.Controllers
             db.Usuarios.Add(nuevoUsuario);
             db.SaveChanges();
 
-            return "Ok!!!";
+            return Json(nuevoUsuario);
 
         }
 
