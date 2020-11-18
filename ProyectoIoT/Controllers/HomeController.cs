@@ -34,6 +34,12 @@ namespace ProyectoIoT.Controllers
         {
             return View();
         }
+        
+        public IActionResult menuPrincipal()
+        {
+            return View(db.Usuarios.ToList());
+        }
+        
 
         public IActionResult Privacy()
         {
