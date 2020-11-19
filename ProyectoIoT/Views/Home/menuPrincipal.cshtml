@@ -1,11 +1,16 @@
+@{
+  Layout = "~/Views/Shared/_menuPrincipalSinHeader.cshtml";
+}
 @section Styles{
     <link rel="stylesheet" href="~/css/menuPrincipal.css" />
+    
 }
+
 <!--Navbar-->
 <nav class="navbar navbar-light amber lighten-4 mb-4">
 
   <!-- Navbar brand -->
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="AgregarUsuarioASession">Navbar</a>
 
   <!-- Collapse button -->
   <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
@@ -35,74 +40,4 @@
 
 </nav>
 <!--/.Navbar-->
-
-<!--Navbar-->
-<nav class="navbar navbar-dark red lighten-1 mb-4">
-
-  <!-- Navbar brand -->
-  <a class="navbar-brand" href="#">Navbar</a>
-
-  <!-- Collapse button -->
-  <button class="navbar-toggler second-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent23"
-    aria-controls="navbarSupportedContent23" aria-expanded="false" aria-label="Toggle navigation">
-    <div class="animated-icon2"><span></span><span></span><span></span><span></span></div>
-  </button>
-
-  <!-- Collapsible content -->
-  <div class="collapse navbar-collapse" id="navbarSupportedContent23">
-
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-    </ul>
-    <!-- Links -->
-
-  </div>
-  <!-- Collapsible content -->
-
-</nav>
-<!--/.Navbar-->
-
-<!--Navbar-->
-<nav class="navbar navbar-dark  indigo darken-2">
-
-  <!-- Navbar brand -->
-  <a class="navbar-brand" href="#">Navbar</a>
-
-  <!-- Collapse button -->
-  <button class="navbar-toggler third-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
-    aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">
-    <div class="animated-icon3"><span></span><span></span><span></span></div>
-  </button>
-
-  
-  <!-- Collapsible content -->
-  <div class="collapse navbar-collapse" id="navbarSupportedContent22">
-
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-    </ul>
-    <!-- Links -->
-
-  </div>
-  <!-- Collapsible content -->
-
-</nav>
-<!--/.Navbar-->
+<script src="~/js/menuPrincipal.js"></script>

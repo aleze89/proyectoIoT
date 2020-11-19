@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Net.Http;
+using System.Data;
 using System.Data.Common;
 using System;
 using System.Collections.Generic;
@@ -59,6 +61,37 @@ namespace ProyectoIoT.Controllers
 
             return Json(nuevoUsuario);
 
+        }
+        
+        public JsonResult AgregarUsuarioASession(string nombreUsuario, string email, string clave)
+        {
+            Usuario nuevoUsuario = new Usuario{
+                NombreUsuario = nombreUsuario,
+                Email= email,
+                Clave = clave
+            };
+            HttpContext.Session.Set<Usuario>("UsuarioLogueado", nuevoUsuario);
+            return Json(nuevoUsuario);
+        }
+     
+        public JsonResult ConsultarUsuario()
+        {
+            var usuario = HttpContext.Session.Get<Usuario>("UsuarioLogueado");
+            if(usuario != null)
+            {
+                return Json(usuario);
+            }
+            else
+            {
+                return Json("No está loqueado");
+            }
+
+        }
+
+        public string EliminarUsuarioDeSession()
+        {
+            HttpContext.Session.Remove("UsuarioLogueado");
+            return "Usuario eliminado";
         }
 
         
