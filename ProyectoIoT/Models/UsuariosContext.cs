@@ -12,5 +12,7 @@ namespace ProyectoIoT.Models
             { }
 
             public DbSet<Usuario> Usuarios { get; set; }
+
+            public DbSet<Dispositivo> Dispositivos { get; set; }
     }
 }
