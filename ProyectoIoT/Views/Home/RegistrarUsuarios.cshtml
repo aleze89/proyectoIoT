@@ -1,5 +1,14 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    bool badLogin = (ViewBag.badLogin != null);
+}
+
+
+
 <h2>Ingrese sus Datos</h2>
-    <form method="POST" action="AgregarUsuario">
+    <form method="POST" action="AgregarUsuarioASession">
         <div class="form-group">
             <label for="nombreUsuario" >Nombre de Usuario</label>
             <input class="form-control" name="nombreUsuario" placeholder="Ingrese su nombre de usuario" required/>
@@ -15,3 +24,20 @@
        
         <input type="submit" class="btn btn-primary" value="Enviar"/>
     </form>
+
+
+    
+<div class="wrapper">
+  <form class="login" action='@Url.Action("Login", "Home")' method="POST">
+    <p class="title">Ingesa tu cuenta</p>
+    <input type="email" name="email" placeholder="Email" autofocus required/>
+    <i class="fa fa-user"></i>
+    <input type="text" name="nombreUsuario" placeholder="Usuario" required/>
+    @if(badLogin){
+         <p style="color: red; margin: 0;">El usuario no corresponde</p>
+    }
+    <button>
+      <span class="state">Log in</span>
+    </button>
+  </form>
+</div>

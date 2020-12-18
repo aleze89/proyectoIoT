@@ -28,13 +28,10 @@ namespace ProyectoIoT.Controllers
             this.db = contexto;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+       
         public IActionResult RegistrarUsuarios()
         {
-            return View();
+            return View(); //quiero q una vez registrados vayan al menu principal
         }
         
         public IActionResult menuPrincipal()
@@ -47,8 +44,25 @@ namespace ProyectoIoT.Controllers
         {
             return View();
         }
+
         [HttpPost]
-            public JsonResult AgregarUsuario(string nombreUsuario,string email,string clave)
+            public IActionResult AgregarDispositivo(long id,string nombre,string modelo,string categoria)
+            {
+            Dispositivo nuevoDispositivo = new Dispositivo {
+                ID = id,
+                Nombre = nombre,
+                Modelo = modelo,
+                Categoria = categoria
+            };
+
+            db.Dispositivos.Add(nuevoDispositivo);
+            db.SaveChanges();
+            return RedirectToAction("menuPrincipal",nuevoDispositivo);
+
+        }
+        
+        [HttpPost]
+        public IActionResult AgregarUsuarioASession(string nombreUsuario, string email, string clave)
         {
             Usuario nuevoUsuario = new Usuario{
                 NombreUsuario = nombreUsuario,
@@ -56,42 +70,83 @@ namespace ProyectoIoT.Controllers
                 Clave = clave
             };
 
-            db.Usuarios.Add(nuevoUsuario);
-            db.SaveChanges();
 
-            return Json(nuevoUsuario);
-
-        }
-        
-        public JsonResult AgregarUsuarioASession(string nombreUsuario, string email, string clave)
-        {
-            Usuario nuevoUsuario = new Usuario{
-                NombreUsuario = nombreUsuario,
-                Email= email,
-                Clave = clave
-            };
             HttpContext.Session.Set<Usuario>("UsuarioLogueado", nuevoUsuario);
-            return Json(nuevoUsuario);
+            return RedirectToAction("menuPrincipal",nuevoUsuario);
         }
      
-        public JsonResult ConsultarUsuario()
+        [HttpPost]
+        public IActionResult Login(string email, string nombreUsuario)
         {
-            var usuario = HttpContext.Session.Get<Usuario>("UsuarioLogueado");
-            if(usuario != null)
+            Usuario userCheck = db.Usuarios.FirstOrDefault(n => (n.Email == email));
+            if(userCheck != null)
             {
-                return Json(usuario);
+                //checkear que sea el mismo usuario
+                if(userCheck.Nombre == nombreUsuario)
+                {
+                    //Agregar el session
+                    AgregarUsuarioASession(email, nombreUsuario);
+
+                    List<Usuario> usuarios = db.Usuarios.ToList();
+
+                    var filtrado = new List<Usuario>();
+                    foreach(var usuario in usuarios){
+                        if(usuario.Duenio == email)
+                        {
+                            filtrado.Add(usuario);
+                        }
+                    };
+                    return View("menuPrincipal", filtrado);
+                }
+                else
+                {
+                    //No es el mismo usuario que registro ese mail
+                    ViewBag.badLogin = true;
+                    return View("Index");
+                }
             }
             else
             {
-                return Json("No está loqueado");
-            }
+                //crear el usuario
+                Usuario nuevoUsuario = new Usuario(){
+                    Email = email,
+                    Nombre = nombreUsuario
+                };
+                db.Usuarios.Add(nuevoUsuario);
+                db.SaveChanges();
 
+                AgregarUsuarioASession(email, nombreUsuario);
+
+                var filtrado = new List<Usuario>();
+
+                return View("menuPrincipal", filtrado);
+            }
         }
 
-        public string EliminarUsuarioDeSession()
+        private void AgregarUsuarioASession(string email, string nombreUsuario)
         {
-            HttpContext.Session.Remove("UsuarioLogueado");
-            return "Usuario eliminado";
+            throw new NotImplementedException();
+        }
+
+        public IActionResult Index()
+        {
+            Usuario userCheck = HttpContext.Session.Get<Usuario>("UsuarioLogueado");
+            if(userCheck != null)
+            {
+                List<Usuario> usuarios = db.Usuarios.ToList();
+                var filtrado = new List<Usuario>();
+                foreach(var usuario in usuarios){
+                    if(userCheck.Duenio == usuario.Email)
+                    {
+                        filtrado.Add(usuario);
+                    }
+                };
+                return View("manuPrincipal", filtrado);
+            }
+            else
+            {
+                return View();
+            }
         }
 
         

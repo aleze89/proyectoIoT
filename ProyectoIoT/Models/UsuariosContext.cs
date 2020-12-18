@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using ProyectoIot.Models;
 using System.Collections.Generic;
-
+using ProyectoIot.Models;
 
 namespace ProyectoIoT.Models
 {

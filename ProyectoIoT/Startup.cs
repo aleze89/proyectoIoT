@@ -29,7 +29,7 @@ namespace ProyectoIoT
             services.AddSession(options =>
             {
                     options.IdleTimeout = TimeSpan.FromMinutes(10);
-                    options.Cookie.Name = ".Usuarios.Session";
+                    options.Cookie.Name = ".ProyectoIoT.Session";
                     options.Cookie.HttpOnly = true;
                     options.Cookie.IsEssential = true;
             });

@@ -1,8 +1,139 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+  Layout = "~/Views/Shared/_index.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+      <div class="container-cover">
+          <div class="container-info-cover">
+              <h1> Home Suite IoT </h1>
+              <p>Estar conectado nunca fue tán fácil!</p>
+          </div>
+      </div>
+
+
+    @* <section class="title">
+        <div class="img"></div>
+        <h1> Home Suite IoT </h1>
+      </section> *@
+
+
+        <nav class="navegacion">
+          <ul class="menu">
+
+              <li class="first-item">
+                <a href="#tab1">
+                  <img src="~/img/lampara.png" alt="lampara" class="imagen">
+                  <span class="text-item">Iluminacion</span>
+                  <span class="down-item"></span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#tab2">
+                  <img src="~/img/camara-de-video.png" alt="seguridad" class="imagen">
+                  <span class="text-item">Camaras</span>
+                  <span class="down-item"></span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#tab3">
+                  <img src="~/img/caliente.png" alt="temperatura del hogar" class="imagen">
+                  <span class="text-item">Temperatura</span>
+                  <span class="down-item"></span>
+                </a>
+              </li>
+              <li>
+                <a href="#tab4">
+                  <img src="~/img/buscar.png" alt="encontrar usuario" class="imagen">
+                  <span class="text-item">Localizar</span>
+                  <span class="down-item"></span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#tab5">
+                  <img src="~/img/advertencia.png" alt="alarma" class="imagen">
+                  <span class="text-item">Alarma</span>
+                  <span class="down-item"></span>
+                </a>
+              </li>
+
+              <li>
+                <a href="#tab6">
+                  <img src="~/img/smart-home.png" alt="agregar dispositivo/disponibles actualmente" class="imagen">
+                  <span class="text-item">Emparejamiento</span>
+                  <span class="down-item"></span>
+                </a>
+              </li>
+
+          </ul>
+
+        </nav>
+
+          <div class="secciones">
+              <ul id="tab1" class="submenu">
+                <h1>Iluminacion</h1>
+                <li class="" id=""><a href="#">Habitacion 1</a></li>
+                <li class="" id=""><a href="#">Habitacion 2</a></li>
+                <li class="" id=""><a href="#">Habitacion 3</a></li>
+              </ul>
+
+              <ul id="tab2" class="submenu">
+                <h1>Camaras</h1>
+                <li class="" id=""><a href="#">Camara  1</a> </li>
+                <li class="" id=""><a href="#">Camara  2</a> </li>
+                <li class="" id=""><a href="#">Camara  3</a> </li>
+              </ul>
+
+              <ul id="tab3" class="submenu">
+                <h1>Temperatura</h1>
+                <li class="" id=""><a href="#">Ambiente 1</a></li>
+                <li class="" id=""><a href="#">Ambiente 2</a></li>
+                <li class="" id=""><a href="#">Ambiente 3</a></li>
+              </ul>
+
+              <ul id="tab4" class="submenu">
+                <h1>Localizar</h1>
+                <li class="" id=""><a href="#">Usuario 1</a></li>
+                <li class="" id=""><a href="#">Usuario 2</a></li>
+                <li class="" id=""><a href="#">Usuario 3</a></li>
+              </ul>
+              <ul id="tab5" class="submenu">
+                <h1>Alarma</h1>
+                <li class="" id=""><a href="#">Luces Calle</a></li>
+                <li class="" id=""><a href="#">Emergencia Medica</a></li>
+                <li class="" id=""><a href="#">Panico</a></li>
+                <li class="" id=""><a href="#">Asalto</a></li>
+              </ul>
+
+              <ul id="tab6" class="submenu">
+                <h1>Emparejamiento</h1>
+                <li class="" id=""><a href="#">Nuevo Dispositivo</a></li>
+                <li class="" id=""><a href="#">Dispositivos Disponibles</a></li>
+                <li class="" id=""><a href="#">Borrar Dispositivos</a></li>
+              </ul>
+
+              
+          </div>
+
+
+ @section IndexScripts { 
+    <script src="~/js/index.js"></script> 
+ } 
+</body>
+</html> 
+        
+
+
+
+

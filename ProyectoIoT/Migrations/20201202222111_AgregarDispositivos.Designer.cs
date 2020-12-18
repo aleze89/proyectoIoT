@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoIoT.Models;
 
 namespace ProyectoIoT.Migrations
 {
     [DbContext(typeof(UsuariosContext))]
-    partial class UsuariosContextModelSnapshot : ModelSnapshot
+    [Migration("20201202222111_AgregarDispositivos")]
+    partial class AgregarDispositivos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,14 +68,8 @@ namespace ProyectoIoT.Migrations
                         .HasColumnType("TEXT")
                         .HasMaxLength(6);
 
-                    b.Property<string>("Duenio")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nombre")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("NombreUsuario")

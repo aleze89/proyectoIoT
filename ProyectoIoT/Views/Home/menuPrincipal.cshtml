@@ -1,44 +1,36 @@
 @{
   Layout = "~/Views/Shared/_menuPrincipalSinHeader.cshtml";
 }
-@section Styles{
-    <link rel="stylesheet" href="~/css/menuPrincipal.css" />
-    
-}
 
-<!--Navbar-->
-<nav class="navbar navbar-light amber lighten-4 mb-4">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
 
-  <!-- Navbar brand -->
-  <form method="GET" action="AgregarUsuarioASession">
-  <a class="navbar-brand" href="#" ></a>
-  </form>
-  <!-- Collapse button -->
-  <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
-    aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
-    <div class="animated-icon1"><span></span><span></span><span></span></div>
-  </button>
+  <section>
+        <div class="hamburger">
+            <span class="line line1" ></span>
+            <span class="line line2" ></span>
+            <span class="line line3" ></span>
+        </div>
 
-  <!-- Collapsible content -->
-  <div class="collapse navbar-collapse" id="navbarSupportedContent20">
+        <div class="nav">
+            <ul class="nav-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Usuario</a></li> @* nombre de usuario *@
+                <li><a href="#">Dispositivo Nuevo</a></li>
+            </ul>
+        </div>
 
-    <!-- Links -->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-    </ul>
-    <!-- Links -->
+        <h1 class="section-heading"> navbar </h1>
+            
+  </section>
 
-  </div>
-  <!-- Collapsible content -->
-
-</nav>
-<!--/.Navbar-->
-<script src="~/js/menuPrincipal.js"></script>
+ @section MenuScripts { <script src="~/js/menuPrincipal.js"></script> } 
+</body>
+</html>                                  
+                          
